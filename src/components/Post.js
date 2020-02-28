@@ -41,6 +41,8 @@ export default function Post(props) {
               )
             })}
           </ul>
+          <p>Add comment:</p>
+          <AddComment />
         </div>
   )  
 }

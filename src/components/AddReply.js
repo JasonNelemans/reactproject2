@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function AddComment() {
+export default function AddReply() {
   const [stateComment, setStateComment] = useState()
 
   return (
@@ -10,7 +10,7 @@ export default function AddComment() {
       setStateComment(event.target.value);
       }}
     />{" "}
-    <button>Add Comment</button>
+    <button>Reply</button>
     </div>
   )
 }

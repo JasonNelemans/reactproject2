@@ -1,5 +1,5 @@
 import React from 'react';
-import AddComment from './AddComment'
+import AddReply from './AddReply'
 
 export default function PostComments(props) {
   return (
@@ -8,7 +8,7 @@ export default function PostComments(props) {
       <p><strong>{props.name}</strong></p>
       <p>{props.comment}</p>
     </li>
-    <AddComment />
+    <AddReply />
     </div>
   )
 }
