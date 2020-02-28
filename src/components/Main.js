@@ -6,11 +6,15 @@ function Main() {
 
   const [data, setData] = useState()
 
+
   useEffect(() => {
     async function getData() {
     try {
       const response = await axios.get('http://localhost:4000/')
-      setData(response)
+  
+      if(response.data) {
+        setData(response.data)
+      }
     }
     catch (error) {
       console.log('error:', error.message)
@@ -19,23 +23,30 @@ function Main() {
   getData(); 
   }, [])
 
-  console.log('data: ', data)
+
+  console.log('data,', data)
+
+  if(data === undefined) {
+    return (
+      <h3>Please wait a moment...</h3>
+    )
+  }
   return (
     <div>
-      <Post 
-        title={"First post"} 
-        picture={"Cat"}
-        likes={3}
-      />
-      <Post 
-        title={"Second post"} 
-        picture={"Dog"}
-        likes={6}
-      />
-      <Post 
-        title={"Third post"}
-        likes={0}
-      />
+      <h2>Social feed</h2>
+      {data.map((post, num) => {
+        return (
+          <div>
+          <p><em>Post number: {num + 1}</em></p>
+          <Post
+            name={post.name}
+            content={post.post}
+            likes={post.likes}
+            comments={post.comments}
+          />
+          </div>
+        )
+      })}
     </div>
   )
 }
