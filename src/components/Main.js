@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Post from './Post';
 import axios from 'axios';
+import AddPost from './AddPost';
 
 function Main() {
-
   const [data, setData] = useState()
-
 
   useEffect(() => {
     async function getData() {
@@ -23,8 +22,9 @@ function Main() {
   getData(); 
   }, [])
 
-
-  console.log('data,', data)
+  const AddPostFunction = (comment) => {
+    setData([...data, {name: 'Jason', post: comment, likes: 0, comments: []}])
+  }
 
   if(data === undefined) {
     return (
@@ -34,6 +34,9 @@ function Main() {
   return (
     <div>
       <h2>Social feed</h2>
+      <AddPost 
+        AddPost={AddPostFunction}
+      />
       {data.map((post, num) => {
         return (
           <div>
