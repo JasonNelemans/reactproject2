@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PostComments from './PostComments'
+import AddComment from './AddComment'
 
 export default function Post(props) {
   const [value, setValue] = useState('unliked')
