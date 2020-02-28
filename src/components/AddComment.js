@@ -1,7 +1,12 @@
 import React, {useState} from 'react';
 
-export default function AddComment() {
+export default function AddComment(props) {
   const [stateComment, setStateComment] = useState()
+
+  const clickHandler = () => {
+    props.addComment(stateComment)
+    setStateComment('')
+  }
 
   return (
     <div>
@@ -10,7 +15,7 @@ export default function AddComment() {
       setStateComment(event.target.value);
       }}
     />{" "}
-    <button>Add Comment</button>
+    <button onClick={clickHandler}>Add Comment</button>
     </div>
   )
 }

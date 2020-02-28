@@ -4,6 +4,7 @@ import AddComment from './AddComment'
 
 export default function Post(props) {
   const [value, setValue] = useState('unliked')
+  const [commentArray, setCommentArray] = useState(props.comments)
   
   const handleClick = () => {
     if(value === 'unliked') {
@@ -21,6 +22,10 @@ export default function Post(props) {
 
   if(value === 'liked') {
     number++
+  }
+
+  const addComment = (comment) => {
+    
   }
 
   return (
@@ -42,7 +47,9 @@ export default function Post(props) {
             })}
           </ul>
           <p>Add comment:</p>
-          <AddComment />
+          <AddComment 
+            // addComment={props.addComment(comment)}
+          />
         </div>
   )  
 }

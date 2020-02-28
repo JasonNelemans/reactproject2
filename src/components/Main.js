@@ -22,8 +22,8 @@ function Main() {
   getData(); 
   }, [])
 
-  const AddPostFunction = (comment) => {
-    setData([...data, {name: 'Jason', post: comment, likes: 0, comments: []}])
+  const AddPostFunction = (post) => {
+    setData([...data, {name: 'Jason', post: post, likes: 0, comments: []}])
   }
 
   if(data === undefined) {
@@ -31,6 +31,11 @@ function Main() {
       <h3>Please wait a moment...</h3>
     )
   }
+
+  const addComment = (comment) => {
+    
+  }
+
   return (
     <div>
       <h2>Social feed</h2>
@@ -46,6 +51,7 @@ function Main() {
             content={post.post}
             likes={post.likes}
             comments={post.comments}
+            addComment={addComment}
           />
           </div>
         )
