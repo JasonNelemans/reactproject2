@@ -16,6 +16,7 @@ export default function Post(props) {
 
   const likeButton = value === 'unliked' ? 'Like' : 'Unlike'
 
+  console.log('developing branch test')
   
   return (
     <div>
