@@ -4,7 +4,7 @@ import AddComment from './AddComment'
 
 export default function Post(props) {
   const [value, setValue] = useState('unliked')
-  const [commentArray, setCommentArray] = useState(props.comments)
+  const [commentsArray, setCommentsArray] = useState(props.comments)
   
   const handleClick = () => {
     if(value === 'unliked') {
@@ -25,7 +25,7 @@ export default function Post(props) {
   }
 
   const addComment = (comment) => {
-    
+    setCommentsArray(commentsArray.push(comment))
   }
 
   return (
@@ -39,17 +39,16 @@ export default function Post(props) {
           <ul>
             {props.comments.map(comment => {
               return (
+                <div>
                 <PostComments
                   name={comment.name}
                   comment={comment.comment}
                 />
+                </div>
               )
             })}
           </ul>
-          <p>Add comment:</p>
-          <AddComment 
-            // addComment={props.addComment(comment)}
-          />
+          <AddComment />
         </div>
   )  
 }

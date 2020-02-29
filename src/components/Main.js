@@ -3,6 +3,7 @@ import Post from './Post';
 import axios from 'axios';
 import AddPost from './AddPost';
 
+
 function Main() {
   const [data, setData] = useState()
 
@@ -23,17 +24,13 @@ function Main() {
   }, [])
 
   const AddPostFunction = (post) => {
-    setData([...data, {name: 'Jason', post: post, likes: 0, comments: []}])
+    setData([{name: 'Jason', post: post, likes: 0, comments: []}, ...data])
   }
 
   if(data === undefined) {
     return (
       <h3>Please wait a moment...</h3>
     )
-  }
-
-  const addComment = (comment) => {
-    
   }
 
   return (
@@ -51,7 +48,6 @@ function Main() {
             content={post.post}
             likes={post.likes}
             comments={post.comments}
-            addComment={addComment}
           />
           </div>
         )
