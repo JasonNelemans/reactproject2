@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import { Switch, Route } from 'react-router-dom';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -10,10 +11,10 @@ function App() {
     <div>
       <Navbar />
       <Switch>
-        <Route path="/profile" />
+        <Route path="/profile" component={Profile}/>
         <Route path="/" component={Main} />
       </Switch>
-      <Main />
+      
       <Footer />
     </div>
   );
